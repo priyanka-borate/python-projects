@@ -1,0 +1,63 @@
+"""
+Name: Priyanka Borate
+Date: 10/28/2019
+Class: CIS 108- Fundamentals Of Programming
+Program name: Carpet Company Charges
+Description : A program to calcuate how much money it will cost to carpet an certain area depending on the lenght, width, price and discount. With the constants of cost per square feet,and the tax rate. 
+"""
+#   constants
+COST_PER_SQ = 3.95
+TAX_RATE= 0.0685
+
+#   import
+from random import randint
+from math import ceil
+
+def main ():
+#   input
+    name= input("Customer Name : ")
+    lenght = float(input("Room Length : "))
+    width = float(input("Room Width : "))
+    price= float(input("Enter the price per square feet :"))
+    discount= float(input("Enter Discount Rate :"))
+
+#   processing section
+    invoice= randint(1,10000)
+    Carpet_Size = ceil(lenght *width)
+    Carpet_Price= Carpet_Size * price
+    Labor_Cost = Carpet_Size * COST_PER_SQ
+    Install_Price = Labor_Cost + Carpet_Price
+    Discount_Rate = discount /100
+    Price_Discount= Install_Price * Discount_Rate
+    Sub_Total = Install_Price - Price_Discount
+    Taxes = Sub_Total * TAX_RATE
+    Total_Cost = Sub_Total + Taxes 
+
+#output
+    print("\n\n\t"," Welcome to Passaic County Carpeting Company \n" ) 
+    print ("Customer Informations: \t\t\t Invoice #:", invoice)
+    print(" \t Customer Name: ",name)
+    print(" \t Carpet Size: ", Carpet_Size,"Square Feet")
+    print (" \n Charges: ")
+    print (" \t Carpet Cost: $13.75 Sq Ft", "\t\t$", format(Carpet_Price,"<1.2f"),sep="")
+    print (" \t Labor Cost: $3.951 Sq Ft", "\t\t$", format(Labor_Cost,"<1.2f"),sep="")
+    print (" \n\t Installed Price:","\t\t\t$", format(Install_Price,"<1.2f"),sep="")
+    print (" \t Discount:" ," \t\t\t\t$", format(Price_Discount,"<1.2f"),sep="")
+    print("\t\t\t\t\t\t_________")
+    print (" \n\t SubTotal:" ," \t\t\t\t$", format(Sub_Total,"<1.2f"),sep="")
+    print (" \t Taxes:" ," \t\t\t\t$", format(Taxes,"<1.2f"),sep="")
+    print (" \n\t Total Cost:" ," \t\t\t\t$", format(Total_Cost,"<1.2f"),sep="")
+    print( "\n",name,", Thank you for using PCC Carpeting. For any questions, \nplease refer to the Invoice #",invoice,sep=" ") 
+
+main ()
+
+
+
+
+
+
+
+
+
+
+
